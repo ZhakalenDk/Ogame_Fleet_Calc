@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ogame_Fleet_Calc_ConsoleApp", "Ogame_Fleet_Calc_ConsoleApp\Ogame_Fleet_Calc_ConsoleApp.csproj", "{2BD0ECCE-F5C8-4136-A308-43265E3C605A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{8A489CD9-6F03-41A5-9669-31C38652790F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2BD0ECCE-F5C8-4136-A308-43265E3C605A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BD0ECCE-F5C8-4136-A308-43265E3C605A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BD0ECCE-F5C8-4136-A308-43265E3C605A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BD0ECCE-F5C8-4136-A308-43265E3C605A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A489CD9-6F03-41A5-9669-31C38652790F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A489CD9-6F03-41A5-9669-31C38652790F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A489CD9-6F03-41A5-9669-31C38652790F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A489CD9-6F03-41A5-9669-31C38652790F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {057E4AB6-9B28-451D-A55D-0DB4D88AFB80}
+	EndGlobalSection
+EndGlobal
