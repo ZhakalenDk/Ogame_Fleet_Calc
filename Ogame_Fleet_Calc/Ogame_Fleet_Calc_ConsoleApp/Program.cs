@@ -38,6 +38,8 @@ namespace Ogame_Fleet_Calc_ConsoleApp
             fleet3.Add_ship ( ShipType.Battlecruiser, 30 ); //  Testing adding ship to fleet
             fleet3.Add_ship ( ShipType.EspionageProbe, -400 );  //  Testing handling of negative integer values. Must result in zero
 
+            fleet.Remove_Ship ( ShipType.LightFighter, 1500 );  //  Testing removal of ships from a fleet
+
             Console.WriteLine ( fleet.Format_To_Console () );
             Console.WriteLine ( fleet2.Format_To_Console () );
             Console.WriteLine ( fleet3.Format_To_Console () );

@@ -21,7 +21,7 @@ namespace Core.Classes
         /// </summary>
         public int SmallCargoes { get; private set; }
         /// <summary>
-        /// The amount of light figthers currently in the fleet
+        /// The amount of light figthers currently in the fleetm
         /// </summary>
         public int LightFighters { get; private set; }
         /// <summary>
@@ -142,6 +142,61 @@ namespace Core.Classes
                     break;
                 default:
                     throw new KeyNotFoundException ( "Error in Fleet.Add_Ship(ShipType, int) - invalid data in Switch (_type):  default" );
+            }
+        }
+
+        /// <summary>
+        /// Remove an amount of a specefic ship type from a fleet
+        /// </summary>
+        /// <param name="_type">THe type of the ship</param>
+        /// <param name="_amount">The amount to remove</param>
+        public void Remove_Ship(ShipType _type, int _amount )
+        {
+            _amount = ( ( _amount < 0 ) ? ( 0 ) : ( _amount ) );
+            //  Adds the amount of ships to the specific type, specefied by the ShipType enum
+            switch ( _type )
+            {
+                case ShipType.SmallCargoShip:
+                    SmallCargoes -= _amount;
+                    break;
+                case ShipType.LargeCargoShip:
+                    LargeCargoShips -= _amount;
+                    break;
+                case ShipType.LightFighter:
+                    LightFighters -= _amount;
+                    break;
+                case ShipType.HeavyFighter:
+                    HeavyFighters -= _amount;
+                    break;
+                case ShipType.Cruiser:
+                    Cruisers -= _amount;
+                    break;
+                case ShipType.Battleship:
+                    Battleships -= _amount;
+                    break;
+                case ShipType.Battlecruiser:
+                    Battlecruisers -= _amount;
+                    break;
+                case ShipType.Destroyer:
+                    Destroyers -= _amount;
+                    break;
+                case ShipType.Deathstar:
+                    Deathstars -= _amount;
+                    break;
+                case ShipType.Bomber:
+                    Bombers -= _amount;
+                    break;
+                case ShipType.Recycler:
+                    Recyclers -= _amount;
+                    break;
+                case ShipType.EspionageProbe:
+                    EspionageProbes -= _amount;
+                    break;
+                case ShipType.ColonyShip:
+                    ColonyShips -= _amount;
+                    break;
+                default:
+                    throw new KeyNotFoundException ( "Error in Fleet.Remove_Ship(ShipType, int) - invalid data in Switch (_type):  default" );
             }
         }
 
