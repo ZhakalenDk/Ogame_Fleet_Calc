@@ -7,7 +7,11 @@ using Core.Interfaces;
 using Core.Classes;
 using Core.DataContainers.Structs;
 using Core.DataContainers.Enums;
+<<<<<<< HEAD
 
+=======
+using Core.Calculations;
+>>>>>>> 4314a3c494750080fab5441a6aa1c72dbd04d282
 
 namespace Ogame_Fleet_Calc_ConsoleApp
 {
@@ -44,6 +48,15 @@ namespace Ogame_Fleet_Calc_ConsoleApp
             Console.WriteLine ( fleet2.Format_To_Console () );
             Console.WriteLine ( fleet3.Format_To_Console () );
 
+<<<<<<< HEAD
+=======
+            Balance balance = new Balance ( 0, 0, 15, 0, 10, 5, 2, 0, 0, 0, 0, 0, 0 );
+
+            Fleet fleet4 = balance.Calculate_Balance (fleet3);
+
+            Console.WriteLine ( fleet4.Format_To_Console () );
+
+>>>>>>> 4314a3c494750080fab5441a6aa1c72dbd04d282
             Console.ReadKey ();
         }
     }

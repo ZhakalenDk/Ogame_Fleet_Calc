@@ -211,20 +211,22 @@ namespace Core.Classes
 
         public static Fleet operator +( Fleet _fleetA, Fleet _fleetB )
         {
-            Fleet newFleet = new Fleet ( _fleetA.Name );
-            newFleet.SmallCargoes = _fleetA.SmallCargoes + _fleetB.SmallCargoes;
-            newFleet.LargeCargoShips = _fleetA.LargeCargoShips + _fleetB.LargeCargoShips;
-            newFleet.LightFighters = _fleetA.LightFighters + _fleetB.LightFighters;
-            newFleet.HeavyFighters = _fleetA.HeavyFighters + _fleetB.HeavyFighters;
-            newFleet.Cruisers = _fleetA.Cruisers + _fleetB.Cruisers;
-            newFleet.Battleships = _fleetA.Battleships + _fleetB.Battleships;
-            newFleet.Battlecruisers = _fleetA.Battlecruisers + _fleetB.Battlecruisers;
-            newFleet.Destroyers = _fleetA.Destroyers + _fleetB.Destroyers;
-            newFleet.Deathstars = _fleetA.Deathstars + _fleetB.Deathstars;
-            newFleet.Bombers = _fleetA.Bombers + _fleetB.Bombers;
-            newFleet.Recyclers = _fleetA.Recyclers + _fleetB.Recyclers;
-            newFleet.EspionageProbes = _fleetA.EspionageProbes + _fleetB.EspionageProbes;
-            newFleet.ColonyShips = _fleetA.ColonyShips + _fleetB.ColonyShips;
+            Fleet newFleet = new Fleet ( _fleetA.Name )
+            {
+                SmallCargoes = _fleetA.SmallCargoes + _fleetB.SmallCargoes,
+                LargeCargoShips = _fleetA.LargeCargoShips + _fleetB.LargeCargoShips,
+                LightFighters = _fleetA.LightFighters + _fleetB.LightFighters,
+                HeavyFighters = _fleetA.HeavyFighters + _fleetB.HeavyFighters,
+                Cruisers = _fleetA.Cruisers + _fleetB.Cruisers,
+                Battleships = _fleetA.Battleships + _fleetB.Battleships,
+                Battlecruisers = _fleetA.Battlecruisers + _fleetB.Battlecruisers,
+                Destroyers = _fleetA.Destroyers + _fleetB.Destroyers,
+                Deathstars = _fleetA.Deathstars + _fleetB.Deathstars,
+                Bombers = _fleetA.Bombers + _fleetB.Bombers,
+                Recyclers = _fleetA.Recyclers + _fleetB.Recyclers,
+                EspionageProbes = _fleetA.EspionageProbes + _fleetB.EspionageProbes,
+                ColonyShips = _fleetA.ColonyShips + _fleetB.ColonyShips
+            };
 
             return newFleet;
         }

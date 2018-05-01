@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculations\Balance.cs" />
     <Compile Include="Classes\Ship.cs" />
     <Compile Include="DataContainers\Enums\ShipType.cs" />
     <Compile Include="Classes\Fleet.cs" />
@@ -47,8 +48,6 @@
     <Compile Include="Interfaces\IShip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Calculations\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
