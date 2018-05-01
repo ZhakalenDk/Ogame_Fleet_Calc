@@ -17,11 +17,11 @@ namespace Core.Classes
         /// <summary>
         /// The type of the ship
         /// </summary>
-        public ShipType Type { get; set; }
+        public ShipType Type { get;}
         /// <summary>
         /// HOw much the ship costs to build
         /// </summary>
-        public Price ShipCost { get; set; }
+        public Price ShipCost { get; }
 
         /// <summary>
         /// The constructor

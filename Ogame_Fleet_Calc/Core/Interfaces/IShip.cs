@@ -16,11 +16,11 @@ namespace Core.Interfaces
         /// <summary>
         /// The name of the ship
         /// </summary>
-        ShipType Type { get; set; }
+        ShipType Type { get;}
         /// <summary>
         /// The price to pay for the ship
         /// </summary>
-        Price ShipCost { get; set; }
+        Price ShipCost { get;}
         /// <summary>
         /// Convets the ship object into a formatted string printable in the console
         /// </summary>
