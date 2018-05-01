@@ -9,20 +9,20 @@ namespace Core.DataContainers.Structs
     /// <summary>
     /// Represents the cost of an object
     /// </summary>
-    struct Price
+    public struct Price
     {
         /// <summary>
         /// How much metal is to be used?
         /// </summary>
-        int MetalCost { get; set; }
+        public int MetalCost { get;}
         /// <summary>
         /// Hoe much Crystal is to be used?
         /// </summary>
-        int CrystalCost { get; set; }
+        public int CrystalCost { get;}
         /// <summary>
         /// How much deuterium is to be used?
         /// </summary>
-        int DeuteriumCost { get; set; }
+        public int DeuteriumCost { get;}
 
         /// <summary>
         /// Constructor
@@ -35,6 +35,16 @@ namespace Core.DataContainers.Structs
             MetalCost = _metal;
             CrystalCost = _crystal;
             DeuteriumCost = _deuterium;
+        }
+
+        /// <summary>
+        /// Convets the Price object into a formatted string printable in the console
+        /// </summary>
+        /// <param name="_spacing">The amount of space between the cost values</param>
+        /// <returns></returns>
+        public string Format_To_Console( string _spacing )
+        {
+            return $"Metal     : {MetalCost}\n{_spacing}Crystal   : {CrystalCost}\n{_spacing}Deuterium : {DeuteriumCost}";
         }
 
         public static Price operator +( Price a, Price b )

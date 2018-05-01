@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\LightFighter.cs" />
+    <Compile Include="Classes\Ship.cs" />
+    <Compile Include="DataContainers\Enums\ShipType.cs" />
+    <Compile Include="Classes\Fleet.cs" />
     <Compile Include="DataContainers\Structs\Price.cs" />
     <Compile Include="Interfaces\IShip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

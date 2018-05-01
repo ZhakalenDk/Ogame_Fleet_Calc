@@ -1,0 +1,10 @@
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_ConsoleApp\bin\Debug\Ogame_Fleet_Calc_ConsoleApp.exe.config
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_ConsoleApp\bin\Debug\Ogame_Fleet_Calc_ConsoleApp.exe
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_ConsoleApp\bin\Debug\Ogame_Fleet_Calc_ConsoleApp.pdb
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_ConsoleApp\obj\Debug\Ogame_Fleet_Calc_ConsoleApp.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_ConsoleApp\obj\Debug\Ogame_Fleet_Calc_ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_ConsoleApp\obj\Debug\Ogame_Fleet_Calc_ConsoleApp.exe
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_ConsoleApp\obj\Debug\Ogame_Fleet_Calc_ConsoleApp.pdb
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_ConsoleApp\bin\Debug\Core.dll
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_ConsoleApp\bin\Debug\Core.pdb
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_ConsoleApp\obj\Debug\Ogame_Fleet_Calc_ConsoleApp.csproj.CopyComplete
