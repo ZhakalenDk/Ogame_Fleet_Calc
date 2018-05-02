@@ -93,7 +93,7 @@ namespace Core.Classes
         /// <param name="_amount">The amount of ships to add</param>
         public void Add_ship( ShipType _type, int _amount )
         {
-            _amount = ( ( _amount < 0 ) ? ( 0 ) : ( _amount ) );
+            _amount = ( ( _amount < 0 ) ? ( 0 ) : ( _amount ) );    //  If the amount of ships added is less than zero, set amount to 0
             #region Old code
             ////  Adds the amount of ships to the specific type, specefied by the ShipType enum
             //switch ( _type )
@@ -152,7 +152,7 @@ namespace Core.Classes
         /// <param name="_amount">The amount to remove</param>
         public void Remove_Ship( ShipType _type, int _amount )
         {
-            _amount = ( ( _amount < 0 ) ? ( 0 ) : ( _amount ) );
+            _amount = ( ( _amount < 0 ) ? ( 0 ) : ( _amount ) );    //  If the amount of ships removed is less than zero, set amount to 0
             #region Old code
             ////  Adds the amount of ships to the specific type, specefied by the ShipType enum
             //switch ( _type )
@@ -232,7 +232,27 @@ namespace Core.Classes
                 //EspionageProbes = _fleetA.EspionageProbes + _fleetB.EspionageProbes,
                 //ColonyShips = _fleetA.ColonyShips + _fleetB.ColonyShips 
                 #endregion
+
             };
+
+            //  Add all ships together with their corresponding shiptype in each fleet
+            for ( ShipType ship = 0; ship < ShipType.ColonyShip; ship++ )
+            {
+                newFleet.Add_ship ( ship, _fleetA.Ships [(int) ship] + _fleetB.Ships [(int) ship] );
+            }
+
+            return newFleet;
+        }
+
+        public static Fleet operator -( Fleet _fleetA, Fleet _fleetB )
+        {
+            Fleet newFleet = new Fleet ( _fleetA.Name );
+
+            //  Subtract all ships from their corresponding shiptype in each fleet
+            for ( ShipType ship = 0; ship < ShipType.ColonyShip; ship++ )
+            {
+                newFleet.Add_ship ( ship, _fleetA.Ships [(int) ship] - _fleetB.Ships [(int) ship] );
+            }
 
             return newFleet;
         }

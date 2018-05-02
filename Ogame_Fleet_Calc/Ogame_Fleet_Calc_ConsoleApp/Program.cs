@@ -45,13 +45,24 @@ namespace Ogame_Fleet_Calc_ConsoleApp
             //Console.WriteLine ( fleet2.Format_To_Console () );
             //Console.WriteLine ( fleet3.Format_To_Console () );
 
-            Balance balance = new Balance ( 0, 0, 100, 0, 10, 5, 2, 0, 0, 0, 0, 0, 0 ); //  Testing constructor
+            Balance balance = new Balance ( 0, 0, 100, 0, 10, 5, 2, 0, 0, 0, 25, 0, 0 ); //  Testing constructor
             Fleet fleet4 = new Fleet ( "Fleet 4" );
-            fleet4.Add_ship ( ShipType.LightFighter, 100 );
+            fleet4.Add_ship ( ShipType.LightFighter, 1600 );
             Console.WriteLine ( fleet4.Format_To_Console () );
             fleet4 = balance.Calculate_Balance ( fleet4, ShipType.LightFighter ); //  Testing balance calculater
 
             Console.WriteLine ( fleet4.Format_To_Console () );
+
+            Fleet fleet5 = new Fleet ( "Fleet 5" );
+            fleet5.Add_ship ( ShipType.LightFighter, 1500 );
+            fleet5.Add_ship ( ShipType.Cruiser, 22 );
+            fleet5.Add_ship ( ShipType.Battleship, 1 );
+            fleet5.Add_ship ( ShipType.Battlecruiser, 30 );
+
+            fleet5 = fleet4 - fleet5;   //  Testing subtraction of fleets
+            fleet5.Name = "Fleet 5";
+
+            Console.WriteLine ( fleet5.Format_To_Console () );
 
             Console.ReadKey ();
         }

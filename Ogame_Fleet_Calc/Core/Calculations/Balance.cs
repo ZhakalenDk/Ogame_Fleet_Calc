@@ -60,7 +60,7 @@ namespace Core.Calculations
             ships [7, 0] = _DS;
             ships [8, 0] = _RIP;
             ships [9, 0] = _BB;
-            ships [12, 0] = _RC;
+            ships [10, 0] = _RC;
             ships [11, 0] = _EP;
             ships [12, 0] = _CS;
             #endregion

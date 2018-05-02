@@ -14,22 +14,22 @@ namespace Core.DataContainers.Structs
         /// <summary>
         /// How much metal is to be used?
         /// </summary>
-        public int MetalCost { get;}
+        public int MetalCost { get; }
         /// <summary>
         /// Hoe much Crystal is to be used?
         /// </summary>
-        public int CrystalCost { get;}
+        public int CrystalCost { get; }
         /// <summary>
         /// How much deuterium is to be used?
         /// </summary>
-        public int DeuteriumCost { get;}
+        public int DeuteriumCost { get; }
 
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="_metal">The price in metal</param>
-        /// <param name="_crystal">THe price in crystal</param>
-        /// <param name="_deuterium">The price in deuterium</param>
+        /// <param name="_metal">The amount of metal the object costs</param>
+        /// <param name="_crystal">The amount of crystal the object costs</param>
+        /// <param name="_deuterium">The amount of deuterium the object costs</param>
         public Price( int _metal, int _crystal, int _deuterium )
         {
             MetalCost = _metal;
@@ -47,9 +47,16 @@ namespace Core.DataContainers.Structs
             return $"Metal     : {MetalCost}\n{_spacing}Crystal   : {CrystalCost}\n{_spacing}Deuterium : {DeuteriumCost}";
         }
 
-        public static Price operator +( Price a, Price b )
+        public static Price operator +( Price _priceA, Price _priceB )
         {
-            Price newPrice = new Price ( a.MetalCost + b.MetalCost, a.CrystalCost + b.CrystalCost, a.DeuteriumCost + b.DeuteriumCost ); //  Add a and b together and create a new price object. Then return it
+            Price newPrice = new Price ( _priceA.MetalCost + _priceB.MetalCost, _priceA.CrystalCost + _priceB.CrystalCost, _priceA.DeuteriumCost + _priceB.DeuteriumCost ); //  Add a and b together and create a new price object. Then return it
+
+            return newPrice;
+        }
+
+        public static Price operator -( Price _priceA, Price _priceB )
+        {
+            Price newPrice = new Price ( _priceA.MetalCost - _priceB.MetalCost, _priceA.CrystalCost - _priceB.CrystalCost, _priceA.DeuteriumCost - _priceB.DeuteriumCost ); //  Subtract a and b and create  new price object. Then return it
 
             return newPrice;
         }
