@@ -94,7 +94,7 @@ namespace Core.Classes
         /// <param name="_amount">The amount of ships to add</param>
         public void Add_ship( ShipType _type, int _amount )
         {
-            _amount = ( ( _amount < 0 ) ? ( 0 ) : ( _amount ) );    //  If the amount of ships added is less than zero, set amount to 0
+            //_amount = ( ( _amount < 0 ) ? ( 0 ) : ( _amount ) );    //  If the amount of ships added is less than zero, set amount to 0
             #region Old code
             ////  Adds the amount of ships to the specific type, specefied by the ShipType enum
             //switch ( _type )
@@ -235,7 +235,7 @@ namespace Core.Classes
         public string Format_To_Console()
         {
             string ships = $"    Ships:\n    {{\n        Small Cargo Ships : {Ships [(int) ShipType.SmallCargoShip]}\n        Large Cargo Ships : {Ships [(int) ShipType.LargeCargoShip]}\n        Light Fighters    : {Ships [(int) ShipType.LightFighter]}\n        Heavy Fighters    : {Ships [(int) ShipType.HeavyFighter]}\n        Cruisers          : {Ships [(int) ShipType.Cruiser]}\n        Battleships       : {Ships [(int) ShipType.Battleship]}\n        Battlecruisers    : {Ships [(int) ShipType.Battlecruiser]}\n        Destroyers        : {Ships [(int) ShipType.Destroyer]}\n        Deathstars        : {Ships [(int) ShipType.Deathstar]}\n        Bombers           : {Ships [(int) ShipType.Bomber]}\n        Recyclers         : {Ships [(int) ShipType.Recycler]}\n        Espionage Probe   : {Ships [(int) ShipType.EspionageProbe]}\n        Colony Ships      : {Ships [(int) ShipType.ColonyShip]}\n    }}\n";
-            string totalCost =  $"    Total Cost:\n    {{\n        {Total_Fleet_Cost().Format_To_Console("        ")}\n    }}\n";
+            string totalCost = $"    Total Cost:\n    {{\n        {Total_Fleet_Cost ().Format_To_Console ( "        " )}\n    }}\n";
 
             string fleet = $"Fleet: {Name}\n{{\n{ships}\n{totalCost}}}";
 
@@ -265,7 +265,7 @@ namespace Core.Classes
             };
 
             //  Add all ships together with their corresponding shiptype in each fleet
-            for ( ShipType ship = 0; ship < ShipType.ColonyShip; ship++ )
+            for ( ShipType ship = 0; ship <= ShipType.ColonyShip; ship++ )
             {
                 newFleet.Add_ship ( ship, _fleetA.Ships [(int) ship] + _fleetB.Ships [(int) ship] );
             }
@@ -278,9 +278,10 @@ namespace Core.Classes
             Fleet newFleet = new Fleet ( _fleetA.Name );
 
             //  Subtract all ships from their corresponding shiptype in each fleet
-            for ( ShipType ship = 0; ship < ShipType.ColonyShip; ship++ )
+            for ( ShipType ship = 0; ship <= ShipType.ColonyShip; ship++ )
             {
-                newFleet.Add_ship ( ship, _fleetA.Ships [(int) ship] - _fleetB.Ships [(int) ship] );
+                int amount = _fleetA.Ships [(int) ship] - _fleetB.Ships [(int) ship];
+                newFleet.Add_ship ( ship, ( ( amount < 0 ) ? ( amount * (-1) ) : ( amount ) ) );
             }
 
             return newFleet;

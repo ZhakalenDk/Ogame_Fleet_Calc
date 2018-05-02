@@ -63,12 +63,31 @@ namespace Ogame_Fleet_Calc_ConsoleApp
             //fleet5.Name = "Fleet 5";
 
             //Console.WriteLine ( fleet5.Format_To_Console () );
-            
-            //  Testing Fleet.Total_Fleet_Cost()
-            Fleet fleet6 = new Fleet ( "Cost Fleet Test" );
-            fleet6.Add_ship ( ShipType.LightFighter, 500 );
 
-            Console.WriteLine ( fleet6.Format_To_Console());
+            //  Testing Fleet.Total_Fleet_Cost()
+
+            //Final test
+            Fleet fleet7 = new Fleet ( "Unblanced Fleet" );
+            fleet7.Add_ship ( ShipType.LightFighter, 234 );
+            fleet7.Add_ship ( ShipType.Cruiser, 150 );
+            fleet7.Add_ship ( ShipType.Battleship, 12 );
+            fleet7.Add_ship ( ShipType.Battlecruiser, 30 );
+
+            Console.WriteLine ( fleet7.Format_To_Console () );
+
+            Fleet fleet8 = new Balance ( 0, 0, 100, 0, 10, 5, 2, 0, 0, 0, 0, 0, 0 ).Calculate_Balance(fleet7, ShipType.Cruiser);    //  Balanced fleet
+
+            Fleet fleet9 = new Fleet ( "Fleet 9" ); //  Used to calculate the difference between the balanced and unbalanced fleet
+            fleet9 = fleet7 - fleet8;
+            fleet9.Name = "Difference";
+
+            Console.WriteLine ( fleet9.Format_To_Console () );
+
+            Fleet fleet10 = new Fleet ( "Fleet 10" );
+            fleet10 = fleet9 + fleet7;  //  Adding the difference to the unbalanced fleet to restore it
+            fleet10.Name = "Restored Fleet";
+
+            Console.WriteLine ( fleet10.Format_To_Console () );
 
             Console.ReadKey ();
         }

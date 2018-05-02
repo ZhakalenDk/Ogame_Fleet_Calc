@@ -13,22 +13,22 @@ namespace Core.Calculations
         /// <summary>
         /// An array containing [Balance Scale, Amount Of Ships]
         /// </summary>
-        private int [,] ships;
+        private int [] ships;
 
         #region Ships
-        public int SC { get { return ships [0, 0]; } }
-        public int LC { get { return ships [1, 0]; } }
-        public int LF { get { return ships [2, 0]; } }
-        public int HF { get { return ships [3, 0]; } }
-        public int XX { get { return ships [4, 0]; } }
-        public int BS { get { return ships [5, 0]; } }
-        public int BC { get { return ships [6, 0]; } }
-        public int DS { get { return ships [7, 0]; } }
-        public int RIP { get { return ships [8, 0]; } }
-        public int BB { get { return ships [9, 0]; } }
-        public int RC { get { return ships [10, 0]; } }
-        public int EP { get { return ships [11, 0]; } }
-        public int CS { get { return ships [12, 0]; } }
+        public int SC { get { return ships [0]; } }
+        public int LC { get { return ships [1]; } }
+        public int LF { get { return ships [2]; } }
+        public int HF { get { return ships [3]; } }
+        public int XX { get { return ships [4]; } }
+        public int BS { get { return ships [5]; } }
+        public int BC { get { return ships [6]; } }
+        public int DS { get { return ships [7]; } }
+        public int RIP { get { return ships [8]; } }
+        public int BB { get { return ships [9]; } }
+        public int RC { get { return ships [10]; } }
+        public int EP { get { return ships [11]; } }
+        public int CS { get { return ships [12]; } }
         #endregion
 
         /// <summary>
@@ -49,20 +49,20 @@ namespace Core.Calculations
         public Balance( int _SC, int _LC, int _LF, int _HF, int _XX, int _BS, int _BC, int _DS, int _RIP, int _BB, int _RC, int _EP, int _CS )
         {
             #region Adding values to array
-            ships = new int [13, 1];
-            ships [0, 0] = _SC;
-            ships [1, 0] = _LC;
-            ships [2, 0] = _LF;
-            ships [3, 0] = _HF;
-            ships [4, 0] = _XX;
-            ships [5, 0] = _BS;
-            ships [6, 0] = _BC;
-            ships [7, 0] = _DS;
-            ships [8, 0] = _RIP;
-            ships [9, 0] = _BB;
-            ships [10, 0] = _RC;
-            ships [11, 0] = _EP;
-            ships [12, 0] = _CS;
+            ships = new int [13];
+            ships [0] = _SC;
+            ships [1] = _LC;
+            ships [2] = _LF;
+            ships [3] = _HF;
+            ships [4] = _XX;
+            ships [5] = _BS;
+            ships [6] = _BC;
+            ships [7] = _DS;
+            ships [8] = _RIP;
+            ships [9] = _BB;
+            ships [10] = _RC;
+            ships [11] = _EP;
+            ships [12] = _CS;
             #endregion
         }
 
@@ -87,9 +87,9 @@ namespace Core.Calculations
             for ( ShipType ship = 0; ship <= ShipType.ColonyShip; ship++ )
             {
                 //  If the balance scale of the current ship type is not 0
-                if ( ships [(int) ship, 0] != 0 )
+                if ( ships [(int) ship] != 0 )
                 {
-                    newFleet.Add_ship ( ship, ( rootShip / ships [(int) _rootShip, 0] * ships [(int) ship, 0] ) );  //  Add balanced amount of the shiptype to the fleet
+                    newFleet.Add_ship ( ship, ( rootShip / ships [(int) _rootShip] * ships [(int) ship] ) );  //  Add balanced amount of the shiptype to the fleet
                 }
             }
 
