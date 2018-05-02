@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.DataContainers.Structs;
 
 namespace Core.Classes
 {
@@ -204,13 +205,41 @@ namespace Core.Classes
             Ships [(int) _type] = _amount;
         }
 
+        public Price Total_Fleet_Cost()
+        {
+            int metal = 0;
+            int crystal = 0;
+            int deuterium = 0;
+
+            for ( ShipType ship = 0; ship < ShipType.ColonyShip; ship++ )
+            {
+                if ( ShipCollection.ShipsInCollection [(int) ship] != null )
+                {
+                    metal += ShipCollection.ShipsInCollection [(int) ship].ShipCost.MetalCost * Ships [(int) ship];
+                    crystal += ShipCollection.ShipsInCollection [(int) ship].ShipCost.CrystalCost * Ships [(int) ship];
+                    deuterium += ShipCollection.ShipsInCollection [(int) ship].ShipCost.DeuteriumCost * Ships [(int) ship];
+                }
+                else
+                {
+                    Console.WriteLine ( ShipCollection.ShipsInCollection [(int) ship].Type );
+                }
+            }
+            Price newPrice = new Price ( metal, crystal, deuterium );
+            return newPrice;
+        }
+
         /// <summary>
         /// Convets the Fleet object into a formatted string printable in the console
         /// </summary>
         /// <returns></returns>
         public string Format_To_Console()
         {
-            return $"Fleet: {Name}\n{{\n    Small Cargo Ships : {Ships [(int) ShipType.SmallCargoShip]}\n    Large Cargo Ships : {Ships [(int) ShipType.LargeCargoShip]}\n    Light Fighters    : {Ships [(int) ShipType.LightFighter]}\n    Heavy Fighters    : {Ships [(int) ShipType.HeavyFighter]}\n    Cruisers          : {Ships [(int) ShipType.Cruiser]}\n    Battleships       : {Ships [(int) ShipType.Battleship]}\n    Battlecruisers    : {Ships [(int) ShipType.Battlecruiser]}\n    Destroyers        : {Ships [(int) ShipType.Destroyer]}\n    Deathstars        : {Ships [(int) ShipType.Deathstar]}\n    Bombers           : {Ships [(int) ShipType.Bomber]}\n    Recyclers         : {Ships [(int) ShipType.Recycler]}\n    Espionage Probe   : {Ships [(int) ShipType.EspionageProbe]}\n    Colony Ships      : {Ships [(int) ShipType.ColonyShip]}";
+            string ships = $"    Ships:\n    {{\n        Small Cargo Ships : {Ships [(int) ShipType.SmallCargoShip]}\n        Large Cargo Ships : {Ships [(int) ShipType.LargeCargoShip]}\n        Light Fighters    : {Ships [(int) ShipType.LightFighter]}\n        Heavy Fighters    : {Ships [(int) ShipType.HeavyFighter]}\n        Cruisers          : {Ships [(int) ShipType.Cruiser]}\n        Battleships       : {Ships [(int) ShipType.Battleship]}\n        Battlecruisers    : {Ships [(int) ShipType.Battlecruiser]}\n        Destroyers        : {Ships [(int) ShipType.Destroyer]}\n        Deathstars        : {Ships [(int) ShipType.Deathstar]}\n        Bombers           : {Ships [(int) ShipType.Bomber]}\n        Recyclers         : {Ships [(int) ShipType.Recycler]}\n        Espionage Probe   : {Ships [(int) ShipType.EspionageProbe]}\n        Colony Ships      : {Ships [(int) ShipType.ColonyShip]}\n    }}\n";
+            string totalCost =  $"    Total Cost:\n    {{\n        {Total_Fleet_Cost().Format_To_Console("        ")}\n    }}\n";
+
+            string fleet = $"Fleet: {Name}\n{{\n{ships}\n{totalCost}}}";
+
+            return fleet;
         }
 
         public static Fleet operator +( Fleet _fleetA, Fleet _fleetB )
