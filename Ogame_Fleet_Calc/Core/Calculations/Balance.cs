@@ -69,31 +69,83 @@ namespace Core.Calculations
         /// <summary>
         /// Calculate a balanced fleet based on the root shiptype scale
         /// </summary>
-        /// <param name="_fleet">The fleet to compare</param>
+        /// <param name="_fleet">THe unbalanced fleet</param>
         /// <param name="_rootShip">The shiptype to base the balance scale on</param>
         /// <returns></returns>
         public Fleet Calculate_Balance( Fleet _fleet, ShipType _rootShip )
         {
             Fleet newFleet = new Fleet ( "Balanced Fleet" );
+
+            newFleet = Calculate_Scale ( _fleet, _rootShip );
+
+            //newFleet.Name = "DEBUG";
+            //Console.WriteLine ( newFleet.Format_To_Console () );
+            //newFleet.Name = "Balanced FLeet";
+
+            newFleet = Restore_Root_Type ( newFleet, _fleet, _rootShip );
+
+            newFleet = Calculate_Scale ( newFleet, _rootShip );
+            //newFleet.Name = "DEBUG 2";
+            //Console.WriteLine ( newFleet.Format_To_Console () );
+            //newFleet.Name = "Balanced Fleet";
+
+            return newFleet;
+        }
+
+        /// <summary>
+        /// Calculates the balance scale of a fleet
+        /// </summary>
+        /// <param name="_fleet">The unbalanced fleet</param>
+        /// <param name="_rootShip">The shiptype to base the scale on</param>
+        /// <returns></returns>
+        private Fleet Calculate_Scale( Fleet _fleet, ShipType _rootShip )
+        {
             int rootShip = _fleet.Ships [(int) _rootShip];  //  Set the root shiptype amount
+            //Console.WriteLine ( rootShip );
 
-            //ships [(int) ShipType.Cruiser, 1] = _fleet.LightFighters / ships [(int) ShipType.LightFighter, 0] * ships [(int) ShipType.Cruiser, 0];
-            //ships [(int) ShipType.Battleship, 1] = ships[(int)ShipType.Cruiser, 1] / ships [(int) ShipType.Cruiser, 0] * ships [(int) ShipType.Battleship, 0];
-            //ships [(int) ShipType.Battlecruiser, 1] = ships [(int) ShipType.Battleship, 1] / ships [(int) ShipType.Battleship, 0] * ships [(int) ShipType.Battlecruiser, 0];
-
-            //Console.WriteLine ( $"Fighters = {ships [(int) ShipType.LightFighter, 1].ToString ( "0,000" )}\nCruisers = {ships [(int) ShipType.Cruiser, 1]}\nBattleships = {ships[(int)ShipType.Battleship, 1]}\nBattlecruisers = {ships[(int)ShipType.Battlecruiser, 1]}" );
+            Fleet newFleet = new Fleet ( "Balanced Fleet" );
 
             //  Add all ships to the fleet
             for ( ShipType ship = 0; ship <= ShipType.ColonyShip; ship++ )
             {
-                //  If the balance scale of the current ship type is not 0
+                //  If the balance scale of the current ship type is 0, Skip this block.
                 if ( ships [(int) ship] != 0 )
                 {
+                    //Console.WriteLine ( $"[{ship.ToString()}] = {(rootShip / ships [(int) _rootShip] * ships[(int)ship]).ToString()}" );
                     newFleet.Add_ship ( ship, ( rootShip / ships [(int) _rootShip] * ships [(int) ship] ) );  //  Add balanced amount of the shiptype to the fleet
                 }
             }
 
             return newFleet;
+        }
+
+        /// <summary>
+        /// Sets a new base for the root shiptype of the unbalanced fleet
+        /// </summary>
+        /// <param name="_fleetA">The balanced fleet</param>
+        /// <param name="_fleetB">The unbalanced fleet</param>
+        /// <param name="_rootShip">The shiptype to base the scale on</param>
+        /// <returns></returns>
+        private Fleet Restore_Root_Type( Fleet _fleetA, Fleet _fleetB, ShipType _rootShip )
+        {
+            Fleet difference = _fleetA - _fleetB;   //  Find the difference between the balanced and unbalanced fleet
+            //difference.Name = "Difference";
+            //Console.WriteLine ( difference.Format_To_Console () );
+
+
+            //  Loops trough all ships in the fleet to locate any negative values
+            for ( ShipType ship = 0; ship <= ShipType.ColonyShip; ship++ )
+            {
+                //  If the amount of a shipstype is negative 
+                if ( difference.Ships [(int) ship] < 0 )
+                {
+                    int result = ( difference.Ships [(int) ship] * ( -1 ) ) / ships [(int) ship] * ships [(int) _rootShip]; //  Calculate how many ships of the root type is needed to balance the negative value out
+                    _fleetA.Add_ship ( _rootShip, result );
+
+                }
+            }
+
+            return _fleetA;
         }
     }
 }

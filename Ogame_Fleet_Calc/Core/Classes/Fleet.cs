@@ -143,7 +143,7 @@ namespace Core.Classes
             //} 
             #endregion
 
-            Ships [(int) _type] = _amount;
+            Ships [(int) _type] += _amount;
         }
 
         /// <summary>
@@ -202,9 +202,13 @@ namespace Core.Classes
             //} 
             #endregion
 
-            Ships [(int) _type] = _amount;
+            Ships [(int) _type] -= _amount;
         }
 
+        /// <summary>
+        /// Calculates the total cost of the fleet
+        /// </summary>
+        /// <returns></returns>
         public Price Total_Fleet_Cost()
         {
             int metal = 0;
@@ -281,7 +285,7 @@ namespace Core.Classes
             for ( ShipType ship = 0; ship <= ShipType.ColonyShip; ship++ )
             {
                 int amount = _fleetA.Ships [(int) ship] - _fleetB.Ships [(int) ship];
-                newFleet.Add_ship ( ship, ( ( amount < 0 ) ? ( amount * (-1) ) : ( amount ) ) );
+                newFleet.Add_ship ( ship, amount );
             }
 
             return newFleet;
