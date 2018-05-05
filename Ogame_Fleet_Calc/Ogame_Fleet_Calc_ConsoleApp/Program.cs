@@ -8,6 +8,8 @@ using Core.Classes;
 using Core.DataContainers.Structs;
 using Core.DataContainers.Enums;
 using Core.Calculations;
+using Core.EventSystem;
+using Core.EventSystem.Events;
 
 namespace Ogame_Fleet_Calc_ConsoleApp
 {
@@ -16,6 +18,7 @@ namespace Ogame_Fleet_Calc_ConsoleApp
         static void Main( string [] args )
         {
 
+            #region Core test
             //IShip ship = new Ship ( ShipType.LightFighter, new Price ( 3000, 1000, 0 ) ); //  Testing constructor
             //IShip ship2 = new Ship ( ShipType.SmallCargoShip, new Price ( 2000, 2000, 0 ) );  //  Second test of constructor
 
@@ -89,18 +92,81 @@ namespace Ogame_Fleet_Calc_ConsoleApp
 
             //Console.WriteLine ( fleet10.Format_To_Console () );
 
-            Fleet Unbalanced = new Fleet ( "Original" );
-            Unbalanced.Add_ship ( ShipType.LightFighter, 1500 );
-            Unbalanced.Add_ship ( ShipType.Cruiser, 150 );
-            Unbalanced.Add_ship ( ShipType.Battleship, 75 );
-            Unbalanced.Add_ship ( ShipType.Battlecruiser, 72 );
-            Console.WriteLine ( Unbalanced.Format_To_Console () );
+            //Fleet Unbalanced = new Fleet ( "Original" );
+            //Unbalanced.Add_ship ( ShipType.LightFighter, 1500 );
+            //Unbalanced.Add_ship ( ShipType.Cruiser, 150 );
+            //Unbalanced.Add_ship ( ShipType.Battleship, 75 );
+            //Unbalanced.Add_ship ( ShipType.Battlecruiser, 72 );
+            //Console.WriteLine ( Unbalanced.Format_To_Console () );
 
-            Fleet Balanced = new Balance ( 0, 0, 100, 0, 10, 5, 2, 0, 0, 0, 0, 0, 0 ).Calculate_Balance (Unbalanced, ShipType.LightFighter);
+            //Fleet Balanced = new Balance ( 0, 0, 100, 0, 10, 5, 2, 0, 0, 0, 0, 0, 0 ).Calculate_Balance (Unbalanced, ShipType.LightFighter);
 
-            Console.WriteLine ( Balanced.Format_To_Console () );
+            //Console.WriteLine ( Balanced.Format_To_Console () ); 
+            #endregion
+
+            #region Event test
+            //ClassTest test = new ClassTest ();
+            //test.Test ();
+
+            //GC.Collect ();  //  TEstet Garbage collection. It works.
+
+            //string word = Console.ReadLine ();
+
+            //if ( word == "Create me" )
+            //{
+            //    IEvent test2 = new TestEvent ( "New event" );
+
+            //    for ( int i = 0; i < 2; i++ )
+            //    {
+            //        EventManager.Instance.Start_Listen_To ( test2.Name, test2.Event );
+            //        Console.WriteLine ( $"A new event was created: '{test2.Name}'" );
+
+            //        string secondWord = Console.ReadLine ();
+
+            //        if ( secondWord == "Print me" )
+            //        {
+            //            EventManager.Instance.Get_Event ( test2.Name ).Invoke ();
+            //            EventManager.Instance.Stop_Listening_To ( test2.Name );
+
+            //            string thirdWord = Console.ReadLine ();
+
+            //            if ( thirdWord == "Try again" )
+            //            {
+            //                if ( EventManager.Instance.Get_Event ( test2.Name ) != null )
+            //                {
+            //                    EventManager.Instance.Get_Event ( test2.Name ).Invoke ();
+
+            //                }
+            //                else
+            //                {
+            //                    Console.WriteLine ( $"No event with the name '{test2.Name}' exists in the collection" );
+            //                }
+
+            //            }
+            //        }
+            //    }
+
+            //}
+
+            #endregion
+
 
             Console.ReadKey ();
+
+
         }
+
+        public class ClassTest
+        {
+            public void Test()
+            {
+                IEvent test = new TestEvent ( "Test" );
+
+                EventManager.Instance.Get_Event ( test.Name ).Invoke ();
+                EventManager.Instance.Stop_Listening_To ( test.Name );
+
+            }
+        }
+        
     }
 }

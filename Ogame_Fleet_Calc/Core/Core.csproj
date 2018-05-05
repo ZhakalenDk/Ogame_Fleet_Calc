@@ -46,11 +46,15 @@
     <Compile Include="DataContainers\Enums\ShipType.cs" />
     <Compile Include="Classes\Fleet.cs" />
     <Compile Include="DataContainers\Structs\Price.cs" />
+    <Compile Include="EventSystem\EventManager.cs" />
+    <Compile Include="EventSystem\Events\TestEvent.cs" />
+    <Compile Include="Interfaces\IEvent.cs" />
     <Compile Include="Interfaces\IShip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataContainers\RawData\Ship_Collection.ini" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
