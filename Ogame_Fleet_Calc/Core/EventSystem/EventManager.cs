@@ -36,16 +36,16 @@ namespace Core.EventSystem
         /// <summary>
         /// A collection of all raised event
         /// </summary>
-        private Dictionary<string, Action> Events;
+        private Dictionary<string, Action<object, EventArgs>> Events;
 
         /// <summary>
         /// Add an event to the event collection.
         /// </summary>
         /// <param name="_eventName">The name of the event</param>
         /// <param name="_event">The method associated with the event</param>
-        public void Start_Listen_To( string _eventName, Action _event )
+        public void Start_Listen_To( string _eventName, Action<object, EventArgs> _event )
         {
-            if ( !Events.TryGetValue ( _eventName, out Action thisEvent ) )
+            if ( !Events.TryGetValue ( _eventName, out Action<object, EventArgs> thisEvent ) )
             {
                 Events.Add ( _eventName, _event );
             }
@@ -66,10 +66,10 @@ namespace Core.EventSystem
         /// </summary>
         /// <param name="_eventName">The name of the event</param>
         /// <returns></returns>
-        public Action Get_Event( string _eventName )
+        public Action<object, EventArgs> Get_Event ( string _eventName )
         {
             //  If the event is in the collection, return it. If not return null
-            if ( Events.TryGetValue ( _eventName, out Action thisEvent ) )
+            if ( Events.TryGetValue ( _eventName, out Action<object, EventArgs> thisEvent ) )
             {
                 return thisEvent;
             }
@@ -82,7 +82,7 @@ namespace Core.EventSystem
         /// </summary>
         private void Initialize()
         {
-            Instance.Events = new Dictionary<string, Action> ();
+            Instance.Events = new Dictionary<string, Action<object, EventArgs>> ();
         }
     }
 }

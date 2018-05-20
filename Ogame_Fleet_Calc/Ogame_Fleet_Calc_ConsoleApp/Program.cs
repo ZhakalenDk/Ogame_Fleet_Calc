@@ -9,7 +9,6 @@ using Core.DataContainers.Structs;
 using Core.DataContainers.Enums;
 using Core.Calculations;
 using Core.EventSystem;
-using Core.EventSystem.Events;
 
 namespace Ogame_Fleet_Calc_ConsoleApp
 {
@@ -92,16 +91,16 @@ namespace Ogame_Fleet_Calc_ConsoleApp
 
             //Console.WriteLine ( fleet10.Format_To_Console () );
 
-            //Fleet Unbalanced = new Fleet ( "Original" );
-            //Unbalanced.Add_ship ( ShipType.LightFighter, 1500 );
-            //Unbalanced.Add_ship ( ShipType.Cruiser, 150 );
-            //Unbalanced.Add_ship ( ShipType.Battleship, 75 );
-            //Unbalanced.Add_ship ( ShipType.Battlecruiser, 72 );
-            //Console.WriteLine ( Unbalanced.Format_To_Console () );
+            Fleet Unbalanced = new Fleet ( "Original" );
+            Unbalanced.Add_ship ( ShipType.LightFighter, 1500 );
+            Unbalanced.Add_ship ( ShipType.Cruiser, 150 );
+            Unbalanced.Add_ship ( ShipType.Battleship, 75 );
+            Unbalanced.Add_ship ( ShipType.Battlecruiser, 72 );
+            Console.WriteLine ( Unbalanced.Format_To_Console () );
 
-            //Fleet Balanced = new Balance ( 0, 0, 100, 0, 10, 5, 2, 0, 0, 0, 0, 0, 0 ).Calculate_Balance (Unbalanced, ShipType.LightFighter);
+            Fleet Balanced = new Balance ( 0, 0, 100, 0, 10, 5, 2, 0, 0, 0, 0, 0, 0 ).Calculate_Balance (Unbalanced, ShipType.LightFighter);
 
-            //Console.WriteLine ( Balanced.Format_To_Console () ); 
+            Console.WriteLine ( Balanced.Format_To_Console () ); 
             #endregion
 
             #region Event test
@@ -154,18 +153,6 @@ namespace Ogame_Fleet_Calc_ConsoleApp
             Console.ReadKey ();
 
 
-        }
-
-        public class ClassTest
-        {
-            public void Test()
-            {
-                IEvent test = new TestEvent ( "Test" );
-
-                EventManager.Instance.Get_Event ( test.Name ).Invoke ();
-                EventManager.Instance.Stop_Listening_To ( test.Name );
-
-            }
         }
         
     }

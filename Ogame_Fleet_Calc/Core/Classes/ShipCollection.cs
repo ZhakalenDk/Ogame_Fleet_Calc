@@ -7,7 +7,10 @@ using Core.DataContainers.Enums;
 
 namespace Core.Classes
 {
-    static class ShipCollection
+    /// <summary>
+    /// Contains a collection of available ships
+    /// </summary>
+    public static class ShipCollection
     {
         private static Ship [] shipsInCollection;
         /// <summary>

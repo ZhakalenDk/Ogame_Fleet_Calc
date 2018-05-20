@@ -1,0 +1,15 @@
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_Application\obj\Debug\Ogame_Fleet_Calc_Application.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_Application\obj\Debug\Ogame_Fleet_Calc_Application.MainWindow.resources
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_Application\obj\Debug\Ogame_Fleet_Calc_Application.Properties.Resources.resources
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_Application\obj\Debug\Ogame_Fleet_Calc_Application.csproj.GenerateResource.cache
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_Application\obj\Debug\Ogame_Fleet_Calc_Application.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_Application\bin\Debug\Ogame_Fleet_Calc_Application.exe.config
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_Application\bin\Debug\Ogame_Fleet_Calc_Application.exe
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_Application\bin\Debug\Ogame_Fleet_Calc_Application.pdb
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_Application\obj\Debug\Ogame_Fleet_Calc_Application.exe
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_Application\obj\Debug\Ogame_Fleet_Calc_Application.pdb
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_Application\bin\Debug\Core.dll
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_Application\bin\Debug\Core.pdb
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_Application\obj\Debug\Ogame_Fleet_Calc_Application.csproj.CopyComplete
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_Application\bin\Debug\UserInterfaceHandler_Library.dll
+C:\Users\Admin\Downloads\Ogame_Fleet_Calc-master\Ogame_Fleet_Calc\Ogame_Fleet_Calc_Application\bin\Debug\UserInterfaceHandler_Library.pdb

@@ -46,7 +46,7 @@ namespace Core.Calculations
         /// <param name="_RC">Recyclers</param>
         /// <param name="_EP">Espionage Probes</param>
         /// <param name="_CS">Colony Ships</param>
-        public Balance( int _SC, int _LC, int _LF, int _HF, int _XX, int _BS, int _BC, int _DS, int _RIP, int _BB, int _RC, int _EP, int _CS )
+        public Balance ( int _SC, int _LC, int _LF, int _HF, int _XX, int _BS, int _BC, int _DS, int _RIP, int _BB, int _RC, int _EP, int _CS )
         {
             #region Adding values to array
             ships = new int [13];
@@ -72,7 +72,7 @@ namespace Core.Calculations
         /// <param name="_fleet">THe unbalanced fleet</param>
         /// <param name="_rootShip">The shiptype to base the balance scale on</param>
         /// <returns></returns>
-        public Fleet Calculate_Balance( Fleet _fleet, ShipType _rootShip )
+        public Fleet Calculate_Balance ( Fleet _fleet, ShipType _rootShip )
         {
             Fleet newFleet = new Fleet ( "Balanced Fleet" );
 
@@ -98,7 +98,7 @@ namespace Core.Calculations
         /// <param name="_fleet">The unbalanced fleet</param>
         /// <param name="_rootShip">The shiptype to base the scale on</param>
         /// <returns></returns>
-        private Fleet Calculate_Scale( Fleet _fleet, ShipType _rootShip )
+        private Fleet Calculate_Scale ( Fleet _fleet, ShipType _rootShip )
         {
             int rootShip = _fleet.Ships [(int) _rootShip];  //  Set the root shiptype amount
             //Console.WriteLine ( rootShip );
@@ -109,7 +109,7 @@ namespace Core.Calculations
             for ( ShipType ship = 0; ship <= ShipType.ColonyShip; ship++ )
             {
                 //  If the balance scale of the current ship type is 0, Skip this block.
-                if ( ships [(int) ship] != 0 )
+                if ( ships [(int) ship] != 0 && ships [(int) _rootShip] != 0 )
                 {
                     //Console.WriteLine ( $"[{ship.ToString()}] = {(rootShip / ships [(int) _rootShip] * ships[(int)ship]).ToString()}" );
                     newFleet.Add_ship ( ship, ( rootShip / ships [(int) _rootShip] * ships [(int) ship] ) );  //  Add balanced amount of the shiptype to the fleet
@@ -126,7 +126,7 @@ namespace Core.Calculations
         /// <param name="_fleetB">The unbalanced fleet</param>
         /// <param name="_rootShip">The shiptype to base the scale on</param>
         /// <returns></returns>
-        private Fleet Restore_Root_Type( Fleet _fleetA, Fleet _fleetB, ShipType _rootShip )
+        private Fleet Restore_Root_Type ( Fleet _fleetA, Fleet _fleetB, ShipType _rootShip )
         {
             Fleet difference = _fleetA - _fleetB;   //  Find the difference between the balanced and unbalanced fleet
             //difference.Name = "Difference";
@@ -137,7 +137,7 @@ namespace Core.Calculations
             for ( ShipType ship = 0; ship <= ShipType.ColonyShip; ship++ )
             {
                 //  If the amount of a shipstype is negative 
-                if ( difference.Ships [(int) ship] < 0 )
+                if ( difference.Ships [(int) ship] < 0 && ships [(int) _rootShip] != 0 && ships [(int) ship] != 0)
                 {
                     int result = ( difference.Ships [(int) ship] * ( -1 ) ) / ships [(int) ship] * ships [(int) _rootShip]; //  Calculate how many ships of the root type is needed to balance the negative value out
                     _fleetA.Add_ship ( _rootShip, result );
@@ -146,6 +146,18 @@ namespace Core.Calculations
             }
 
             return _fleetA;
+        }
+
+        /// <summary>
+        /// Convets the Balance object into a formatted string printable in the console
+        /// </summary>
+        /// <returns></returns>
+        public string Format_To_Console ()
+        {
+            string shipsString = $"    Ships:\n    {{\n        Small Cargo Ships : {ships [(int) ShipType.SmallCargoShip]}\n        Large Cargo Ships : {ships [(int) ShipType.LargeCargoShip]}\n        Light Fighters    : {ships [(int) ShipType.LightFighter]}\n        Heavy Fighters    : {ships [(int) ShipType.HeavyFighter]}\n        Cruisers          : {ships [(int) ShipType.Cruiser]}\n        Battleships       : {ships [(int) ShipType.Battleship]}\n        Battlecruisers    : {ships [(int) ShipType.Battlecruiser]}\n        Destroyers        : {ships [(int) ShipType.Destroyer]}\n        Deathstars        : {ships [(int) ShipType.Deathstar]}\n        Bombers           : {ships [(int) ShipType.Bomber]}\n        Recyclers         : {ships [(int) ShipType.Recycler]}\n        Espionage Probe   : {ships [(int) ShipType.EspionageProbe]}\n        Colony Ships      : {ships [(int) ShipType.ColonyShip]}\n    }}\n";
+            string fleet = $"Fleet: Balance\n{{\n{shipsString}\n}}";
+
+            return fleet;
         }
     }
 }

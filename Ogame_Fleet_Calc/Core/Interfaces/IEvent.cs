@@ -15,6 +15,6 @@ namespace Core.Interfaces
         /// <summary>
         /// The event
         /// </summary>
-        void Event();
+        void Event(object _sender, EventArgs _e);
     }
 }
