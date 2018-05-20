@@ -16,27 +16,7 @@ namespace UserInterfaceHandler_Library.SetParameters
         /// <summary>
         /// A global refrence. NOTE: SetParameters must be declared and initialized before using this refrence.
         /// </summary>
-        public static SetParameters Instance
-        {
-            get
-            {
-                if ( Instance != null )
-                {
-                    return Instance;
-                }
-                else
-                {
-                    throw new NullReferenceException ();
-                }
-            }
-            set
-            {
-                if ( Instance == null )
-                {
-                    Instance = value;
-                }
-            }
-        }
+        public static SetParameters Instance { get; set; }
 
         private ParameterBox [] parameters;
 
