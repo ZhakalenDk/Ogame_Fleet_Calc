@@ -22,6 +22,12 @@ namespace Ogame_Fleet_Calc_Application
             InitializeComponent ();
             Root_Ship_List ();
             SetParameters.Instance = new SetParameters ( ref SetParameters_Parameters_Panel );  //  Set up the Parameter-value fields list
+            ParameterCollection.Add_Parameter_List ( "Balance_Parameters", new SetParameters ( ref SetParameters_Parameters_Panel ) );
+            ParameterCollection.Add_Parameter_List ( "Balanced_Fleet", new SetParameters ( ref BalancedFleet_ShipAmount_Panel ) );
+            ParameterCollection.Add_Parameter_List ( "Fleet_Parameters", new SetParameters ( ref SetFleet_Parameters_Panel ) );
+
+
+            SetParameters_Panel.Hide ();
         }
 
         /// <summary>
@@ -60,8 +66,37 @@ namespace Ogame_Fleet_Calc_Application
                 fleet.Add_ship ( ShipType.Cruiser, 500 );
                 #endregion
 
-                Fleet balance = new Balance ( int.Parse ( SetParameters.Instance.Get_ParameterBox ( ShipType.SmallCargoShip ).Text ), int.Parse ( SetParameters.Instance.Get_ParameterBox ( ShipType.LargeCargoShip ).Text ), int.Parse ( SetParameters.Instance.Get_ParameterBox ( ShipType.LightFighter ).Text ), int.Parse ( SetParameters.Instance.Get_ParameterBox ( ShipType.HeavyFighter ).Text ), int.Parse ( SetParameters.Instance.Get_ParameterBox ( ShipType.Cruiser ).Text ), int.Parse ( SetParameters.Instance.Get_ParameterBox ( ShipType.Battleship ).Text ), int.Parse ( SetParameters.Instance.Get_ParameterBox ( ShipType.Battlecruiser ).Text ), int.Parse ( SetParameters.Instance.Get_ParameterBox ( ShipType.Destroyer ).Text ), int.Parse ( SetParameters.Instance.Get_ParameterBox ( ShipType.Deathstar ).Text ), int.Parse ( SetParameters.Instance.Get_ParameterBox ( ShipType.Bomber ).Text ), int.Parse ( SetParameters.Instance.Get_ParameterBox ( ShipType.Recycler ).Text ), int.Parse ( SetParameters.Instance.Get_ParameterBox ( ShipType.EspionageProbe ).Text ), int.Parse ( SetParameters.Instance.Get_ParameterBox ( ShipType.ColonyShip ).Text ) ).Calculate_Balance ( fleet, (ShipType) SetParamaters_RootShipSelection_CheckBox.SelectedIndex );
-                MessageBox.Show ( balance.Format_To_Console () );
+
+
+                Fleet balance = new Balance ( int.Parse ( ParameterCollection.Get_Parameters ( "Balance_Parameters" ).Get_ParameterBox ( ShipType.SmallCargoShip ).Text ), int.Parse ( ParameterCollection.Get_Parameters ( "Balance_Parameters" ).Get_ParameterBox ( ShipType.LargeCargoShip ).Text ), int.Parse ( ParameterCollection.Get_Parameters ( "Balance_Parameters" ).Get_ParameterBox ( ShipType.LightFighter ).Text ), int.Parse ( ParameterCollection.Get_Parameters ( "Balance_Parameters" ).Get_ParameterBox ( ShipType.HeavyFighter ).Text ), int.Parse ( ParameterCollection.Get_Parameters ( "Balance_Parameters" ).Get_ParameterBox ( ShipType.Cruiser ).Text ), int.Parse ( ParameterCollection.Get_Parameters ( "Balance_Parameters" ).Get_ParameterBox ( ShipType.Battleship ).Text ), int.Parse ( ParameterCollection.Get_Parameters ( "Balance_Parameters" ).Get_ParameterBox ( ShipType.Battlecruiser ).Text ), int.Parse ( ParameterCollection.Get_Parameters ( "Balance_Parameters" ).Get_ParameterBox ( ShipType.Destroyer ).Text ), int.Parse ( ParameterCollection.Get_Parameters ( "Balance_Parameters" ).Get_ParameterBox ( ShipType.Deathstar ).Text ), int.Parse ( ParameterCollection.Get_Parameters ( "Balance_Parameters" ).Get_ParameterBox ( ShipType.Bomber ).Text ), int.Parse ( ParameterCollection.Get_Parameters ( "Balance_Parameters" ).Get_ParameterBox ( ShipType.Recycler ).Text ), int.Parse ( ParameterCollection.Get_Parameters ( "Balance_Parameters" ).Get_ParameterBox ( ShipType.EspionageProbe ).Text ), int.Parse ( ParameterCollection.Get_Parameters ( "Balance_Parameters" ).Get_ParameterBox ( ShipType.ColonyShip ).Text ) ).Calculate_Balance ( Create_Fleet (), (ShipType) SetParamaters_RootShipSelection_CheckBox.SelectedIndex );
+                FleetCost__MetalAmount_TextBox.Text = balance.Total_Fleet_Cost ().MetalCost.ToString ();
+                FleetCost_CrystalAmount_TextBox.Text = balance.Total_Fleet_Cost ().CrystalCost.ToString ();
+                FleetCost_DeuteriumAmount_TextBox.Text = balance.Total_Fleet_Cost ().DeuteriumCost.ToString ();
+
+                Make_Balanced_Fleet (balance);
+
+                //MessageBox.Show ( balance.Format_To_Console () );
+            }
+        }
+
+        private Fleet Create_Fleet ()
+        {
+            Fleet fleet = new Fleet ( "New Flet" );
+
+            for ( ShipType type = 0; type <= ShipType.ColonyShip; type++ )
+            {
+                fleet.Add_ship ( type, int.Parse ( ParameterCollection.Get_Parameters ( "Fleet_Parameters" ).Get_ParameterBox ( type ).Text ) );
+            }
+
+            return fleet;
+
+        }
+
+        private void Make_Balanced_Fleet ( Fleet fleet )
+        {
+            for ( ShipType type = 0; type <= ShipType.ColonyShip; type++ )
+            {
+                ParameterCollection.Get_Parameters ( "Balanced_Fleet" ).Get_ParameterBox ( type ).Text = fleet.Ships [(int) type].ToString ();
             }
         }
 
@@ -118,6 +153,32 @@ namespace Ogame_Fleet_Calc_Application
             }
 
             checkBox.SetItemCheckState ( checkBox.SelectedIndex, CheckState.Checked );  //  Check the current selected item
+        }
+
+        bool ShowFleetTab = true;
+
+        /// <summary>
+        /// Switch from Balance parameter panel to Fleet parameter panel
+        /// </summary>
+        /// <param name="_sender"></param>
+        /// <param name="_e"></param>
+        public void Switch_Parameter_Screen ( object _sender, EventArgs _e )
+        {
+            ShowFleetTab = !ShowFleetTab;
+
+            Button switchButton = (Button) _sender;
+            switchButton.Text = ( ShowFleetTab ? ( "Show Balance Tab" ) : ( "Show Fleet Tab" ) );
+
+            if ( ShowFleetTab )
+            {
+                SetFleet_Panel.Show ();
+                SetParameters_Panel.Hide ();
+            }
+            else if ( !ShowFleetTab )
+            {
+                SetParameters_Panel.Show ();
+                SetFleet_Panel.Hide ();
+            }
         }
     }
 }

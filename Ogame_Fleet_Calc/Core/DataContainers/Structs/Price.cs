@@ -14,15 +14,15 @@ namespace Core.DataContainers.Structs
         /// <summary>
         /// How much metal is to be used?
         /// </summary>
-        public int MetalCost { get; }
+        public long MetalCost { get; }
         /// <summary>
         /// Hoe much Crystal is to be used?
         /// </summary>
-        public int CrystalCost { get; }
+        public long CrystalCost { get; }
         /// <summary>
         /// How much deuterium is to be used?
         /// </summary>
-        public int DeuteriumCost { get; }
+        public long DeuteriumCost { get; }
 
         /// <summary>
         /// Constructor
@@ -30,7 +30,7 @@ namespace Core.DataContainers.Structs
         /// <param name="_metal">The amount of metal the object costs</param>
         /// <param name="_crystal">The amount of crystal the object costs</param>
         /// <param name="_deuterium">The amount of deuterium the object costs</param>
-        public Price( int _metal, int _crystal, int _deuterium )
+        public Price( long _metal, long _crystal, long _deuterium )
         {
             MetalCost = _metal;
             CrystalCost = _crystal;

@@ -211,9 +211,9 @@ namespace Core.Classes
         /// <returns></returns>
         public Price Total_Fleet_Cost()
         {
-            int metal = 0;
-            int crystal = 0;
-            int deuterium = 0;
+            long metal = 0;
+            long crystal = 0;
+            long deuterium = 0;
 
             for ( ShipType ship = 0; ship < ShipType.ColonyShip; ship++ )
             {

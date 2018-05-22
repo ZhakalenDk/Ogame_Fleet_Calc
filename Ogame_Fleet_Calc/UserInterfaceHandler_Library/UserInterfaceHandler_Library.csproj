@@ -41,9 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EventCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SetParameters\ParameterBox.cs" />
+    <Compile Include="SetParameters\ParameterCollection.cs" />
     <Compile Include="SetParameters\SetParameters.cs" />
   </ItemGroup>
   <ItemGroup>
