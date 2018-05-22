@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ogame_Fleet_Calc_ConsoleApp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{8A489CD9-6F03-41A5-9669-31C38652790F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ogame_Fleet_Calc_Application", "Ogame_Fleet_Calc_Application\Ogame_Fleet_Calc_Application.csproj", "{6FA05975-BA7F-422D-BF20-6095F7CF591C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInterfaceHandler_Library", "UserInterfaceHandler_Library\UserInterfaceHandler_Library.csproj", "{AA8B6E14-A2D0-4D9D-A86C-01F120B4163E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{8A489CD9-6F03-41A5-9669-31C38652790F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A489CD9-6F03-41A5-9669-31C38652790F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A489CD9-6F03-41A5-9669-31C38652790F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FA05975-BA7F-422D-BF20-6095F7CF591C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FA05975-BA7F-422D-BF20-6095F7CF591C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FA05975-BA7F-422D-BF20-6095F7CF591C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FA05975-BA7F-422D-BF20-6095F7CF591C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA8B6E14-A2D0-4D9D-A86C-01F120B4163E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA8B6E14-A2D0-4D9D-A86C-01F120B4163E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA8B6E14-A2D0-4D9D-A86C-01F120B4163E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA8B6E14-A2D0-4D9D-A86C-01F120B4163E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

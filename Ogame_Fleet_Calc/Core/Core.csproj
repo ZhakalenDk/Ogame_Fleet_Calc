@@ -40,15 +40,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculations\Balance.cs" />
     <Compile Include="Classes\Ship.cs" />
+    <Compile Include="Classes\ShipCollection.cs" />
     <Compile Include="DataContainers\Enums\ShipType.cs" />
     <Compile Include="Classes\Fleet.cs" />
     <Compile Include="DataContainers\Structs\Price.cs" />
+    <Compile Include="EventSystem\EventManager.cs" />
+    <Compile Include="Interfaces\IEvent.cs" />
     <Compile Include="Interfaces\IShip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Calculations\" />
+    <None Include="DataContainers\RawData\Ship_Collection.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EventSystem\Events\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -15,13 +15,17 @@ namespace Core.Classes
     public class Ship : IShip
     {
         /// <summary>
+        /// The name of the ship
+        /// </summary>
+        public string Name { get; private set; }
+        /// <summary>
         /// The type of the ship
         /// </summary>
-        public ShipType Type { get; set; }
+        public ShipType Type { get;}
         /// <summary>
         /// HOw much the ship costs to build
         /// </summary>
-        public Price ShipCost { get; set; }
+        public Price ShipCost { get; }
 
         /// <summary>
         /// The constructor
@@ -31,6 +35,7 @@ namespace Core.Classes
         public Ship( ShipType _type, Price _shipCost )
         {
             Type = _type;
+            Name = ShipType_To_Name ();
             ShipCost = _shipCost;
         }
 
@@ -41,6 +46,61 @@ namespace Core.Classes
         public string Format_To_Console()
         {
             return $"{Type}\n}}\n    Cost:\n    {{\n        {ShipCost.Format_To_Console ( "        " )}\n    }}\n}}";
+        }
+
+        /// <summary>
+        /// Sets the name of the ship based on the shiptype
+        /// </summary>
+        /// <returns></returns>
+        private string ShipType_To_Name()
+        {
+            string name;
+            switch ( Type )
+            {
+                case ShipType.SmallCargoShip:
+                    name = "Small Cargo ship";
+                    break;
+                case ShipType.LargeCargoShip:
+                    name = "Large Cargo Ship";
+                    break;
+                case ShipType.LightFighter:
+                    name = "Light Fighter";
+                    break;
+                case ShipType.HeavyFighter:
+                    name = "Heavy Fighter";
+                    break;
+                case ShipType.Cruiser:
+                    name = "Cruiser";
+                    break;
+                case ShipType.Battleship:
+                    name = "Battleship";
+                    break;
+                case ShipType.Battlecruiser:
+                    name = "Battlecruiser";
+                    break;
+                case ShipType.Destroyer:
+                    name = "Destroyer";
+                    break;
+                case ShipType.Deathstar:
+                    name = "Deathstar";
+                    break;
+                case ShipType.Bomber:
+                    name = "Bomber";
+                    break;
+                case ShipType.Recycler:
+                    name = "Recycler";
+                    break;
+                case ShipType.EspionageProbe:
+                    name = "EspionageProbe";
+                    break;
+                case ShipType.ColonyShip:
+                    name = "ColonyShip";
+                    break;
+                default:
+                    name = null;
+                    break;
+            }
+            return name;
         }
 
         public static Price operator +( Ship _shipA, Ship _shipB )
